@@ -12,7 +12,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using CacheHelper.WebClient.Models;
 
-namespace CacheHelper.WebClient
+namespace Com.EnjoyCodes.CacheHelper.WebClient
 {
     public class EmailService : IIdentityMessageService
     {

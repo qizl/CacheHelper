@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace CacheHelper.WebClient
+namespace Com.EnjoyCodes.CacheHelper.WebClient
 {
     public class RouteConfig
     {

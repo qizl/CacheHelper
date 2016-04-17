@@ -7,7 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using CacheHelper.WebClient.Models;
 
-namespace CacheHelper.WebClient
+namespace Com.EnjoyCodes.CacheHelper.WebClient
 {
     public partial class Startup
     {

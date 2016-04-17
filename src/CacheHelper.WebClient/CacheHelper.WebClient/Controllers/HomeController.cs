@@ -4,21 +4,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CacheHelper.WebClient.Controllers
+namespace Com.EnjoyCodes.CacheHelper.WebClient.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            CacheHelper.Initialize(HttpContext.Cache);
+            CacheHelper.InsertAbsoluteExpiration("a", 1);
+            CacheHelper.InsertAbsoluteExpiration("a", 2);
+            CacheHelper.InsertAbsoluteExpiration("b", 3);
+            CacheHelper.InsertAbsoluteExpiration("c", 4);
+            CacheHelper.InsertAbsoluteExpiration("d", 5);
+            object a = CacheHelper.Get("a");
 
-            CacheHelper.Insert("a", 1);
-            CacheHelper.Insert("a", 2);
-            CacheHelper.Insert("b", 3);
-            CacheHelper.Insert("c", 4);
-            CacheHelper.Insert("d", 5);
+            CacheHelper.InsertSlidingExpiration("e", 6, 5);
+            object e = CacheHelper.Get("e");
 
-            object pi = CacheHelper.Get("a");
+            string key = User.Identity.Name + "_" + "f";
+            CacheHelper.Insert(key, new List<int>() { 1, 2, 3 });
+            object keyF = CacheHelper.Get(key);
+
             List<string> keys = CacheHelper.GetKeys();
             CacheHelper.RemoveAll();
 

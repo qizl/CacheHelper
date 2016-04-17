@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="CacheHelper.WebClient.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Com.EnjoyCodes.CacheHelper.WebClient.MvcApplication" Language="C#" %>

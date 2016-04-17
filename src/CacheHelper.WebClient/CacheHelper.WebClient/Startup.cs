@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(CacheHelper.WebClient.Startup))]
-namespace CacheHelper.WebClient
+[assembly: OwinStartupAttribute(typeof(Com.EnjoyCodes.CacheHelper.WebClient.Startup))]
+namespace Com.EnjoyCodes.CacheHelper.WebClient
 {
     public partial class Startup
     {

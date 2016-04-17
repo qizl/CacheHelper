@@ -7,8 +7,8 @@
     <ProjectGuid>{7274D267-48E1-411B-BA2B-33BAD7B4ABD8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CacheHelper</RootNamespace>
-    <AssemblyName>CacheHelper</AssemblyName>
+    <RootNamespace>Com.EnjoyCodes.CacheHelper</RootNamespace>
+    <AssemblyName>Com.EnjoyCodes.CacheHelper</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

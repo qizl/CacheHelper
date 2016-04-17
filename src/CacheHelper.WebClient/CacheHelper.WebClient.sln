@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.25123.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHelper.WebClient", "CacheHelper.WebClient\CacheHelper.WebClient.csproj", "{4B583FD2-ABDF-49F3-BAD3-CDC2FFE08366}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHelper", "..\CacheHelper\CacheHelper.csproj", "{7274D267-48E1-411B-BA2B-33BAD7B4ABD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHelper.Tests", "..\CacheHelper.Tests\CacheHelper.Tests.csproj", "{827697C6-2493-4AD5-B7B9-0137D2502EE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7274D267-48E1-411B-BA2B-33BAD7B4ABD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7274D267-48E1-411B-BA2B-33BAD7B4ABD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7274D267-48E1-411B-BA2B-33BAD7B4ABD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{827697C6-2493-4AD5-B7B9-0137D2502EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827697C6-2493-4AD5-B7B9-0137D2502EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827697C6-2493-4AD5-B7B9-0137D2502EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827697C6-2493-4AD5-B7B9-0137D2502EE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

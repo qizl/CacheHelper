@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CacheHelper.WebClient.Models;
 
-namespace CacheHelper.WebClient.Controllers
+namespace Com.EnjoyCodes.CacheHelper.WebClient.Controllers
 {
     [Authorize]
     public class ManageController : Controller
