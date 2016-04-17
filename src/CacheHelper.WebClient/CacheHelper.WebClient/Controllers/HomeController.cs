@@ -25,7 +25,7 @@ namespace Com.EnjoyCodes.CacheHelper.WebClient.Controllers
             object keyF = CacheHelper.Get(key);
 
             List<string> keys = CacheHelper.GetKeys();
-            CacheHelper.RemoveAll();
+            //CacheHelper.RemoveAll();
 
             return View();
         }
