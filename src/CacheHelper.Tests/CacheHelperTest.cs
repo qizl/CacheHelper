@@ -15,14 +15,10 @@ namespace Com.EnjoyCodes.CacheHelper.Tests
         {
             string key = "a";
             object value = 123;
-            CacheHelper.Insert(key, value);
-            var result = CacheHelper.Get(key);
+            CacheHelper.Insert(CacheHelper.GenerateKey(1), value);
+            var result = CacheHelper.Get(CacheHelper.GenerateKey(1));
 
             Assert.AreEqual(value, result);
         }
-
-        [TestMethod]
-        public void TestGet()
-        { CacheHelper.Get(1, 2); }
     }
 }

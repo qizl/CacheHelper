@@ -89,11 +89,8 @@ namespace Com.EnjoyCodes.CacheHelper
         #endregion
 
         #region Methods Get & Remove
-        public static object Get(params object[] keys)
-        {
-            string key = GenerateKey(keys);
-            return string.IsNullOrEmpty(key) ? null : _cache.Get(key);
-        }
+        public static object Get(string key)
+        { return string.IsNullOrEmpty(key) ? null : _cache.Get(key); }
 
         public static List<string> GetKeys()
         {
