@@ -20,5 +20,9 @@ namespace Com.EnjoyCodes.CacheHelper.Tests
 
             Assert.AreEqual(value, result);
         }
+
+        [TestMethod]
+        public void TestGet()
+        { CacheHelper.Get(1, 2); }
     }
 }

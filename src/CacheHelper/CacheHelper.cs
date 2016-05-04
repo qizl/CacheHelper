@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Web;
 using System.Web.Caching;
 
@@ -15,6 +16,20 @@ namespace Com.EnjoyCodes.CacheHelper
         {
             get { return _storeMinutes; }
             set { _storeMinutes = value; }
+        }
+        #endregion
+
+        #region Utility Methods
+        /// <summary>
+        /// 生成Key
+        /// </summary>
+        /// <param name="keys"></param>
+        /// <returns></returns>
+        public static string GenerateKey(params object[] keys)
+        {
+            StackTrace stackTrace = new StackTrace();
+            string key = stackTrace.GetFrame(1).GetMethod().ReflectedType.FullName + "." + stackTrace.GetFrame(1).GetMethod().Name + "." + string.Join(".", keys);
+            return key;
         }
         #endregion
 
@@ -74,8 +89,11 @@ namespace Com.EnjoyCodes.CacheHelper
         #endregion
 
         #region Methods Get & Remove
-        public static object Get(string key)
-        { return string.IsNullOrEmpty(key) ? null : _cache.Get(key); }
+        public static object Get(params object[] keys)
+        {
+            string key = GenerateKey(keys);
+            return string.IsNullOrEmpty(key) ? null : _cache.Get(key);
+        }
 
         public static List<string> GetKeys()
         {
