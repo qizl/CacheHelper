@@ -31,6 +31,17 @@ namespace Com.EnjoyCodes.CacheHelper
             string key = stackTrace.GetFrame(1).GetMethod().ReflectedType.FullName + "." + stackTrace.GetFrame(1).GetMethod().Name + "." + string.Join(".", keys);
             return key;
         }
+
+        /// <summary>
+        /// 生成Key
+        /// </summary>
+        /// <param name="keys"></param>
+        /// <returns></returns>
+        public static string GenerateKey(StackTrace stackTrace)
+        {
+            string key = stackTrace.GetFrame(1).GetMethod().ReflectedType.FullName + "." + stackTrace.GetFrame(1).GetMethod().Name + ".";
+            return key;
+        }
         #endregion
 
         #region Methods Insert
@@ -89,6 +100,14 @@ namespace Com.EnjoyCodes.CacheHelper
         #endregion
 
         #region Methods Get & Remove
+        /// <summary>
+        /// 获取缓存
+        ///     根据调用对象生成Key
+        /// </summary>
+        /// <returns></returns>
+        public static object Get()
+        { return _cache.Get(GenerateKey(new StackTrace())); }
+
         public static object Get(string key)
         { return string.IsNullOrEmpty(key) ? null : _cache.Get(key); }
 
