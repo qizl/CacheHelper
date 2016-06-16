@@ -28,8 +28,7 @@ namespace Com.EnjoyCodes.CacheHelper
         public static string GenerateKey(params object[] keys)
         {
             StackTrace stackTrace = new StackTrace();
-            string key = stackTrace.GetFrame(1).GetMethod().ReflectedType.FullName + "." + stackTrace.GetFrame(1).GetMethod().Name + "." + string.Join(".", keys);
-            return key;
+            return stackTrace.GetFrame(1).GetMethod().ReflectedType.FullName + "." + stackTrace.GetFrame(1).GetMethod().Name + "." + string.Join(".", keys);
         }
 
         /// <summary>
@@ -38,10 +37,7 @@ namespace Com.EnjoyCodes.CacheHelper
         /// <param name="keys"></param>
         /// <returns></returns>
         public static string GenerateKey(StackTrace stackTrace)
-        {
-            string key = stackTrace.GetFrame(1).GetMethod().ReflectedType.FullName + "." + stackTrace.GetFrame(1).GetMethod().Name + ".";
-            return key;
-        }
+        { return stackTrace.GetFrame(1).GetMethod().ReflectedType.FullName + "." + stackTrace.GetFrame(1).GetMethod().Name + "."; }
         #endregion
 
         #region Methods Insert
