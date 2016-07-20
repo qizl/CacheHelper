@@ -107,6 +107,18 @@ namespace Com.EnjoyCodes.CacheHelper
         public static object Get(string key)
         { return string.IsNullOrEmpty(key) ? null : _cache.Get(key); }
 
+        public static List<string> GetKeys(string s)
+        {
+            List<string> keys = new List<string>();
+            foreach (DictionaryEntry item in _cache)
+                if (item.Key.ToString().Contains(s))
+                    keys.Add(item.Key.ToString());
+            return keys;
+        }
+
+        public static List<string> GetKeys()
+        { return GetKeys(string.Empty); }
+
         public static List<string> GetKeys()
         {
             List<string> keys = new List<string>();
@@ -120,6 +132,18 @@ namespace Com.EnjoyCodes.CacheHelper
             IList<string> keys = GetKeys();
             foreach (string key in keys)
                 _cache.Remove(key);
+        }
+
+        /// <summary>
+        /// 移除包含指定字符的缓存
+        /// </summary>
+        /// <param name="keywords"></param>
+        public static void RemoveMany(string s)
+        {
+            var hwsKeys = CacheHelper.GetKeys(s);
+            if (hwsKeys != null)
+                foreach (var item in hwsKeys)
+                    CacheHelper.Remove(item);
         }
 
         public static void Remove(string key)
