@@ -11,7 +11,7 @@ namespace Com.EnjoyCodes.CacheHelper.Tests
     public class CacheHelperTest
     {
         [TestMethod]
-        public void TestInsert()
+        public void Insert()
         {
             string key = "a";
             object value = 123;
@@ -19,6 +19,15 @@ namespace Com.EnjoyCodes.CacheHelper.Tests
             var result = CacheHelper.Get(CacheHelper.GenerateKey(key));
 
             Assert.AreEqual(value, result);
+        }
+
+        [TestMethod]
+        public void Get()
+        {
+            var str = "test string";
+            CacheHelper.Insert(CacheHelper.GenerateKey(), str);
+            var result = CacheHelper.Get().ToString();
+            Assert.AreEqual(str, result);
         }
     }
 }
