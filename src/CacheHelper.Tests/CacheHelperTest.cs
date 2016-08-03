@@ -15,8 +15,8 @@ namespace Com.EnjoyCodes.CacheHelper.Tests
         {
             string key = "a";
             object value = 123;
-            CacheHelper.Insert(CacheHelper.GenerateKey(1), value);
-            var result = CacheHelper.Get(CacheHelper.GenerateKey(1));
+            CacheHelper.Insert(CacheHelper.GenerateKey(key), value);
+            var result = CacheHelper.Get(CacheHelper.GenerateKey(key));
 
             Assert.AreEqual(value, result);
         }
