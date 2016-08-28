@@ -107,23 +107,12 @@ namespace Com.EnjoyCodes.CacheHelper
         public static object Get(string key)
         { return string.IsNullOrEmpty(key) ? null : _cache.Get(key); }
 
-        public static List<string> GetKeys(string s)
+        public static List<string> GetKeys(string s = "")
         {
             List<string> keys = new List<string>();
             foreach (DictionaryEntry item in _cache)
                 if (item.Key.ToString().Contains(s))
                     keys.Add(item.Key.ToString());
-            return keys;
-        }
-
-        public static List<string> GetKeys()
-        { return GetKeys(string.Empty); }
-
-        public static List<string> GetKeys()
-        {
-            List<string> keys = new List<string>();
-            foreach (DictionaryEntry item in _cache)
-                keys.Add(item.Key.ToString());
             return keys;
         }
 
