@@ -47,11 +47,12 @@ namespace Com.EnjoyCodes.CacheHelper
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        /// <param name="storeMinutes">绝对到期时间</param>
-        public static void InsertAbsoluteExpiration(string key, object value, double storeMinutes)
+        /// <param name="dependencies"></param>
+        /// <param name="storeMinutes"></param>
+        public static void InsertAbsoluteExpiration(string key, object value, CacheDependency dependencies, double storeMinutes)
         {
             Remove(key);
-            _cache.Insert(key, value, null, DateTime.Now.AddMinutes(storeMinutes), Cache.NoSlidingExpiration);
+            _cache.Insert(key, value, dependencies, DateTime.Now.AddMinutes(storeMinutes), Cache.NoSlidingExpiration, null);
         }
 
         /// <summary>
@@ -60,8 +61,32 @@ namespace Com.EnjoyCodes.CacheHelper
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
+        /// <param name="storeMinutes">绝对到期时间</param>
+        public static void InsertAbsoluteExpiration(string key, object value, double storeMinutes)
+        { InsertAbsoluteExpiration(key, value, null, storeMinutes); }
+
+        /// <summary>
+        /// 插入缓存
+        ///     绝对到期
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         public static void InsertAbsoluteExpiration(string key, object value)
-        { InsertAbsoluteExpiration(key, value, _storeMinutes); }
+        { InsertAbsoluteExpiration(key, value, null, _storeMinutes); }
+
+        /// <summary>
+        /// 插入缓存
+        ///     平滑到期
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <param name="dependencies"></param>
+        /// <param name="storeMinutes"></param>
+        public static void InsertSlidingExpiration(string key, object value, CacheDependency dependencies, double storeMinutes)
+        {
+            Remove(key);
+            _cache.Insert(key, value, dependencies, Cache.NoAbsoluteExpiration, TimeSpan.FromSeconds(storeMinutes), CacheItemPriority.High, null);
+        }
 
         /// <summary>
         /// 插入缓存
@@ -71,10 +96,7 @@ namespace Com.EnjoyCodes.CacheHelper
         /// <param name="value"></param>
         /// <param name="storeMinutes">平滑到期时间</param>
         public static void InsertSlidingExpiration(string key, object value, double storeMinutes)
-        {
-            Remove(key);
-            _cache.Insert(key, value, null, Cache.NoAbsoluteExpiration, TimeSpan.FromSeconds(storeMinutes));
-        }
+        { InsertSlidingExpiration(key, value, null, storeMinutes); }
 
         /// <summary>
         /// 插入缓存
@@ -83,7 +105,7 @@ namespace Com.EnjoyCodes.CacheHelper
         /// <param name="key"></param>
         /// <param name="value"></param>
         public static void InsertSlidingExpiration(string key, object value)
-        { InsertSlidingExpiration(key, value, _storeMinutes); }
+        { InsertSlidingExpiration(key, value, null, _storeMinutes); }
 
         /// <summary>
         /// 插入缓存
